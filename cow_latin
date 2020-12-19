@@ -1,0 +1,28 @@
+consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"]
+
+
+def cow_latin(word):
+    if word[0] in consonants:
+        word = f"{word}{word[0]}oo"
+        word = word[1:]
+        return word
+    else:
+        word += "moo"
+        return word
+
+
+def sentence_of_latin(sentence):
+    list_of_words = sentence.split(" ")
+    translated_words = [cow_latin(word) for word in list_of_words]
+    translated_words_to_string = " ".join(translated_words)
+    return translated_words_to_string
+
+
+def main():
+    sentence = "blank"
+    while sentence != "":
+        sentence = input("what sentence do you want translated? (try 'turtles'):")
+        print(sentence_of_latin(sentence))
+
+
+main()
